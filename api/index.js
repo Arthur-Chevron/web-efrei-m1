@@ -1,13 +1,22 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const dbConfig = require("./config/db.config")
+
+
 const db = require("./models/index")
-const carController = require("./controllers/car.controller")
-const carConnectionObj = db.Cars
+
+
 const carRoutes = require("./routes/car.routes")
 
 const app = express();
+
+// parse requests of content-type - application/json
+app.use(bodyParser.json())
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(cors(
     {
