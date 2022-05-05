@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { addCar } from "../services/car.service"
 
-const CarForm = () => {
+const CarForm = (props) => {
 
     const [carData, setCarData] = useState({
         brand: "",
@@ -9,17 +9,6 @@ const CarForm = () => {
         horse_power: 0,
         num_doors: 0
     })
-
-    const dummyTrucks = [
-        {
-            name: "Trucky",
-            weight: 4000
-        },
-        {
-            name: "Truckor",
-            weight: 8500
-        }
-    ]
 
     const onChangeHandler = (e) => {
         setCarData({
@@ -30,13 +19,15 @@ const CarForm = () => {
 
     const onSubmitHandler = async (e) => {
         e.preventDefault()
-        console.log(carData)
-        // send post to API
-        await addCar(carData)
+        const res = await addCar(carData)
+        await props.addCarReact(res.data.data)
     }
 
     return (
         <div>
+            <div>{props.allCar.map(name => <h2 key={name._id}>{name.brand}</h2>)}</div>
+
+            <p>Hello, complete the form bellow to add a new car</p>
 
             <form onChange={onChangeHandler} onSubmit={onSubmitHandler}>
                 <label>Brand</label>
@@ -50,6 +41,8 @@ const CarForm = () => {
                     <option value="">Please select</option>
                     <option value="180">180</option>
                     <option value="250">250</option>
+                    <option value="250">300</option>
+                    <option value="250">380</option>
                 </select>
 
                 <label>Number of Doors</label>
@@ -64,15 +57,6 @@ const CarForm = () => {
             </form>
         </div>
     );
-}
-
-const Truck = (props) => {
-    return (
-        <div>
-            <p>Name : {props.name}</p>
-            <p>Weight : {props.weight}</p>
-        </div>
-    )
 }
 
 export default CarForm

@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .App {
   text-align: center;
+  font-family: "Roboto Slab", serif;
+
+}
+
+.light-font {
+  font-weight: 300;
+}
+
+.normal-font {
+  font-weight: 400;
+}
+
+.bold-font {
+  font-weight: 700;
 }
 
 .App-logo {
@@ -14,7 +30,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: #222838;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +52,37 @@
     transform: rotate(360deg);
   }
 }
+
+.button-color {
+  padding: 5px 15px;
+  border-radius: 2px;
+  background: linear-gradient(0deg,#5056ed,#5056ed),linear-gradient(76.35deg,#5056ed 40.09%,#9b18f2 125.4%),linear-gradient(0deg,#293040,#293040);
+  opacity: 1;
+  transition: all 0.2s ease-in;
+  font-size: 1vw;
+}
+
+.button-color:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.heading-h1 {
+  font-size:  5vw;
+}
+
+.flex-space-between-align-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.light-purple-gradient {
+  background: radial-gradient(54.78% 805% at 50% 50%,#c7c9ff 0,#7d82ff 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
