@@ -5,9 +5,7 @@ import { useState, useEffect } from "react"
 import { seeAllCar } from "./services/car.service"
 
 function App() {
-    const [allCar, setArray] = useState([
-        {_id: "1234", brand: "Audi", model: "RS8", horse_power: 480, num_doors: 4}
-    ])
+    const [allCar, setArray] = useState([])
 
     const addCarReact = (newValue) => {
         setArray((array) => [...array, newValue])
@@ -18,11 +16,19 @@ function App() {
     }
 
     const updateCar = (data) => {
-        console.log("need to update a value")
+        let items = [...allCar];
+        let item = {...allCar[allCar.findIndex(a => a._id === data._id)]};
+
+        item._id = data._id
+        item.brand = data.brand
+        item.model = data.model
+        item.horse_power = data.horse_power
+        item.num_doors = data.num_doors
+        items[allCar.findIndex(a => a._id === data._id)] = item;
+        setArray((items) => [...items]);
     }
 
     useEffect( () => {
-        console.log("is fire")
         seeAllCar().then(r => {
             r.data.data.forEach(item => {
                 addCarReact(item)

@@ -75,7 +75,7 @@ exports.update = async (req,res) => {
   if (brand !== null && brand !== '') updateCar.brand = brand
   if (horse_power !== null && horse_power !== '') updateCar.horse_power = horse_power
   if (num_doors !== null && num_doors !== '') updateCar.num_doors = num_doors
-  if (model !== null && model !== '') updateCar.phone = model
+  if (model !== null && model !== '') updateCar.model = model
 
   if (horse_power <= 0) return res.status(400).send("Horse power must be greater than 0")
   if (num_doors <= 0) return res.status(400).send("Car must have at least 1 door")

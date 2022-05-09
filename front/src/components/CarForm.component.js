@@ -24,20 +24,18 @@ const CarForm = (props) => {
     }
 
     return (
-        <div>
-            <div>{props.allCar.map(name => <h2 key={name._id}>{name.brand}</h2>)}</div>
-
-            <p>Hello, complete the form bellow to add a new car</p>
+        <div className="one-card margin-bottom">
+            <p className="light-purple-gradient">Hello, complete the form bellow to add a new car</p>
 
             <form onChange={onChangeHandler} onSubmit={onSubmitHandler}>
                 <label>Brand</label>
-                <input type="text" name="brand" />
+                <input className="input-in-card" type="text" name="brand" />
 
                 <label>Model</label>
-                <input type="text" name="model" />
+                <input className="input-in-card" type="text" name="model"/>
 
                 <label>Horse Power</label>
-                <select name="horse_power">
+                <select className="select-in-card" name="horse_power">
                     <option value="">Please select</option>
                     <option value="180">180</option>
                     <option value="250">250</option>
@@ -46,13 +44,13 @@ const CarForm = (props) => {
                 </select>
 
                 <label>Number of Doors</label>
-                <select name="num_doors">
+                <select className="select-in-card" name="num_doors">
                     <option value="">Please select</option>
                     <option value="2">2</option>
                     <option value="4">4</option>
                 </select>
 
-                <input type="submit" name="submit" />
+                <input className="button-color" type="submit" name="submit" />
 
             </form>
         </div>
